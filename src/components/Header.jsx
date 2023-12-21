@@ -22,7 +22,7 @@ function Header() {
     <>
        <Button ref={btnRef} colorScheme='purple' onClick={onOpen} position={"fixed"}
     top={'4'}
-    left={'4'} padding={'0'} borderRadius={'full'} >
+    left={'4'} padding={'0'} zIndex={'2'} borderRadius={'full'} >
         <AiOutlineMenuUnfold/>
       </Button>
       <Drawer
