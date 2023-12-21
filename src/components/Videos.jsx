@@ -1,4 +1,4 @@
-import { Button, ButtonSpinner, Heading, Stack, Text, VStack } from '@chakra-ui/react'
+import { Heading } from '@chakra-ui/react';
 import React, { useState } from 'react'
 
 function Videos() {
@@ -14,23 +14,7 @@ function Videos() {
   const [videosrc, Setvideosrc]= useState(videosArr[0])
   return (
     <>
-     <Stack direction={["column","row"]} h={'100vh'}>
-      <VStack w={"full"} padding={"7"}>
-      <video src={videosrc} controls width={"100%"}></video>
-      <VStack alignItems={'flex-start'} padding={"7"} width={"full"} overflow={"auto"}>
-        <Heading> Sample videos</Heading>
-        <Text> This is a sample video for testing and demo this is acalled desription</Text>
-      </VStack>
-      </VStack>
-    
-      <VStack w={["full","xl"]} alignItems={"stretch"} padding={'8'} spacing={'8'} overflow={'auto'}>
-      {
-        videosArr.map((item,index)=>
-          <Button colorScheme='purple' onClick={()=>Setvideosrc(item)} >Lecture {index+1}</Button>
-        )
-      }
-      </VStack>
-     </Stack> 
+     <Heading>videos</Heading>
     </>
   )
 }

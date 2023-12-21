@@ -9,6 +9,9 @@ export const ColorModeSwitcher = props => {
 
   return (
     <IconButton
+    borderRadius={'full'}
+    border={'1px solid none'}
+    bg={'purple'}
     position={"fixed"}
     top={'4'}
     right={'4'}

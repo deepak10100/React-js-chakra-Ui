@@ -1,26 +1,29 @@
 import React from 'react'
 import {
-    Drawer,
-    DrawerBody,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerOverlay,
-    DrawerContent,
-    DrawerCloseButton,
-    Button,
-   
-    useDisclosure,
-    VStack,
-  } from '@chakra-ui/react'
-  import { BiMenuAltLeft } from "react-icons/bi";
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  Button,
+  useDisclosure,
+  Input,
+  VStack,
+
+} from '@chakra-ui/react'
+import { AiOutlineMenuUnfold } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 function Header() {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = React.useRef()
   return (
     <>
-        <Button ref={btnRef} zIndex={'2'} position={"fixed"} top={"4"} left={"4"} h={"10"} w={"10"} padding={"0"} borderRadius={"full"} colorScheme='purple' onClick={onOpen}>
-        <BiMenuAltLeft size={"20"} />
+       <Button ref={btnRef} colorScheme='purple' onClick={onOpen} position={"fixed"}
+    top={'4'}
+    left={'4'} padding={'0'} borderRadius={'full'} >
+        <AiOutlineMenuUnfold/>
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -31,32 +34,30 @@ function Header() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>VIDEO HUB</DrawerHeader>
+          <DrawerHeader>VIDEOS HUB</DrawerHeader>
 
           <DrawerBody>
-            <VStack align={"flex-start"}>
-           <Button colorScheme='purple' variant={'ghost'} onClick={onClose}>
-           <Link to={"/"}>Home</Link>
-           </Button>
-           <Button colorScheme='purple' variant={'ghost'} onClick={onClose}>
-           <Link to={"/videos"}>Videos</Link>
-           </Button>
-           <Button colorScheme='purple' variant={'ghost'} onClick={onClose}>
-           <Link to={"/freevideos"}>Free Videos</Link>
-           </Button>
-           <Button colorScheme='purple' variant={'ghost'} onClick={onClose}>
-           <Link to={"/upload"}>Upload</Link>
-           </Button>
+            <VStack alignItems={'flex-start'}>
+            <Button colorScheme='purple' onClick={onClose} variant={'outline'} >
+              <Link to={'/'}>HOME</Link>
+            </Button>
+            <Button colorScheme='purple' onClick={onClose} variant={'outline'}>
+              <Link to={'/videos'}>VIDEOS</Link>
+            </Button>
+            <Button colorScheme='purple' onClick={onClose} variant={'outline'}>
+              <Link to={'/freevideos'}>FREE VIDEOS</Link>
+            </Button>
+            <Button colorScheme='purple' onClick={onClose} variant={'outline'}>
+              <Link to={'/uploads'}>UPLOADS</Link>
+            </Button>
             </VStack>
           </DrawerBody>
 
-          <DrawerFooter justifyContent={"space-around"}>
+          <DrawerFooter justifyContent={'space-between'} >
             <Button variant='outline' mr={3} onClick={onClose}>
-            <Link to={"/login"}>Login</Link>
+              Login
             </Button>
-            <Button colorScheme='purple' onClick={onClose}>
-            <Link to={"/signup"}>Signup</Link>
-            </Button>
+            <Button colorScheme='purple' onClick={onClose}>Sign Up</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
