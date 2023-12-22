@@ -1,4 +1,4 @@
-import { Heading } from '@chakra-ui/react';
+import { Box, Button, Heading, Stack, Text, VStack } from '@chakra-ui/react';
 import React, { useState } from 'react'
 
 function Videos() {
@@ -14,7 +14,24 @@ function Videos() {
   const [videosrc, Setvideosrc]= useState(videosArr[0])
   return (
     <>
-     <Heading>videos</Heading>
+     <Stack direction={['column', 'row']} h={'100vh'} spacing='24px' py={0}>
+  <Box width={'full'}>
+    <video src={videosrc} width={'100%'} controls></video>
+    <Heading>Videos Des</Heading>
+    <Text> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere, cupiditate?</Text>
+  </Box> 
+  <Box p={10}>
+    <Heading>Classes</Heading>
+    <VStack p={10}>
+    {
+      videosArr.map((item,index)=>
+        <Button onClick={()=> Setvideosrc(item) }>Leatures {index+1}</Button>
+      )
+    }
+     
+    </VStack>
+  </Box>
+</Stack>
     </>
   )
 }
