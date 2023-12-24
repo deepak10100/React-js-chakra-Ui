@@ -1,19 +1,21 @@
-import { ColorModeScript, ChakraProvider, theme } from '@chakra-ui/react';
-import React, { StrictMode } from 'react';
-import * as ReactDOM from 'react-dom/client';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
-import ColorModeSwitcher from './ColorModeSwitcher'
+import reportWebVitals from './reportWebVitals';
 
-
-const container = document.getElementById('root');
-const root = ReactDOM.createRoot(container);
-
+import { ChakraProvider } from '@chakra-ui/react'
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <StrictMode>
-    <ColorModeScript />
-   <ChakraProvider theme={theme}>
-   <ColorModeSwitcher/>
-   <App />
+  <React.StrictMode>
+   <ChakraProvider>
+
+    <App />
    </ChakraProvider>
-  </StrictMode>
+  </React.StrictMode>
 );
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
